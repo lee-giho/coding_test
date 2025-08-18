@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Main {
+public class Main1 {
   public static void main(String[] args) throws IOException {
 
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); // 한 줄 단위로 입력값 입력 받음

@@ -58,6 +58,7 @@ n=0, n=1일 때 for문으로 answer를 구하지 않고 초기화한 값인 0을
 삼항연산자를 통해 n=0과 n=1일 때 각각 answer를 0과 1로 초기화할 수 있게 수정했다.
 
 ## ✅ 정답 코드
+- 변수만 사용
 ```java
 import java.io.*;
 
@@ -80,5 +81,49 @@ public class Main {
 
     System.out.println(answer);
   }
+}
+```
+
+- 배열 사용
+```java
+import java.io.*;
+
+public class Main {
+  public static void main(String[] args) throws IOException {
+
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); // 한 줄 단위로 입력값 입력 받음
+
+    int n = Integer.parseInt(br.readLine()); // n 번째 피보나치 수를 구할 것인지 받음
+
+    if (n < 2) { // n이 0 또는 1일 경우
+      System.out.println(n);
+      return; // 종료
+    }
+
+    long[] nums = new long[n+1]; // 0번째 숫자도 포함하기 때문에 n+1 크기의 배열 생성
+    nums[0] = 0; // 0번째 0으로 초기화
+    nums[1] = 1; // 1번째 1로 초기화
+
+    for (int i = 2; i < n+1; i++) {
+      nums[i] = nums[i-2] + nums[i-1]; // 이전의 두 수를 더해 i번째에 저장
+    }
+
+    System.out.println(nums[n]);
+  }
+}
+```
+
+- 제출 결과<br>
+![alt text](image.png)
+<br>
+아래: 변수만 사용<br>
+위: 배열 사용
+
+제출해본 결과 실행 시간에서 큰 차이가 없었다. 시간 복잡도가 똑같이 O(n)이라 그런 것 같다.<br>
+배열로 바꾸면서 for문은 더 간단해지고 의도가 잘 보이지만 n을 받고 나서 조건문을 하나 더 추가했어야 됐다.
+```java
+if (n < 2) {
+  System.out.println(n);
+  return;
 }
 ```
