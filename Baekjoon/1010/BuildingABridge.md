@@ -1,4 +1,4 @@
-# 📋 나무 조각
+# 📋 다리 놓기
 - Link<br>
 https://www.acmicpc.net/problem/1010
 - 풀이 날짜<br>
