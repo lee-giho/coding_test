@@ -1,4 +1,4 @@
-# 📋 숫자 게임
+# 📋 요세푸스 문제 0
 - Link<br>
 https://www.acmicpc.net/problem/11866
 - 풀이 날짜<br>
