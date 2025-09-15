@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer st = new StringTokenizer(br.readLine());
+
+    int N = Integer.parseInt(st.nextToken()); // 지울 숫자의 범위 (1 ~ N)
+    int K = Integer.parseInt(st.nextToken()); // 몇 번째 수를 지울 건지
+
+    boolean[] removed = new boolean[N+1]; // 지워진 숫자 확인을 위한 배열
+    int count = 0; // 몇 번째로 지워졌는지
+
+    for (int p = 2; p < N+1; p++) {
+      if (removed[p]) { // 이미 지워졌다면 건너뛰기
+        continue;
+      }
+
+      // p의 배수를 작은 것부터 지우기
+      for (int m = p; m < N+1; m += p) {
+        if (!removed[m]) { // 지워지지 않았다면
+          removed[m] = true; // 지우고 
+          count++; // 횟수 증가
+          if (count == K) { // K번째로 지워진 수면 출력 후 종료
+            System.out.println(m);
+            return;
+          }
+        }
+      }
+    }
+  }
+}
