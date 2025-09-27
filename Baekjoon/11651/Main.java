@@ -27,6 +27,6 @@ public class Main {
       sb.append(dots[i][0]).append(' ').append(dots[i][1]).append('\n');
     }
     
-    System.out.println(sb.toString().toString());
+    System.out.println(sb.toString());
   }
 }
